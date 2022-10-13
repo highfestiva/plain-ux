@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="jquery.min.js"></script>
+<style>
+h1 {width:100%; border-bottom:1px solid black;}
+#menu {width:20%; float:left;}
+#content {width:70%; float:left; font-size:20px;}
+</style>
+</head>
+<body>
+<h1>Header</h1>
+<div id="menu">
+</div>
+<div id="content">
+</div>
+</body>
+<script>
+setTimeout(function() {
+  $("#menu").load("table.html");
+}, 1000);
+$(document).on("click", "div#menu > div", function(ev) {
+  let txt = $(this).text();
+  setTimeout(function() {
+    $("#content").html("This is the content for " + txt);
+  }, 500);
+});
+</script>
+</html>
